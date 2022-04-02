@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 from main.users.forms import UserAdminChangeForm, UserAdminCreationForm
 
-from .models import PostNews, UserVotePost, UserCommentPost
+from .models import PostNews, UserCommentPost, UserVotePost
 
 User = get_user_model()
 admin.site.register(PostNews,)

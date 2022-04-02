@@ -1,9 +1,13 @@
-from django.urls import path, include
-
-from .views import PostCreateCommentViewSet, UserVotePostViewSet, PostCreateViewSet, RegisterUserApi, update_count_post
-
+from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
+from .views import (
+    PostCreateCommentViewSet,
+    PostCreateViewSet,
+    RegisterUserApi,
+    UserVotePostViewSet,
+    update_count_post,
+)
 
 router = DefaultRouter()
 router.register('post_create', PostCreateViewSet)

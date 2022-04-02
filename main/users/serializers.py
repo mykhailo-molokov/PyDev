@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
-from .models import UserCommentPost, UserVotePost, PostNews
+from .models import PostNews, UserCommentPost, UserVotePost
 
 User = get_user_model()
 

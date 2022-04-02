@@ -1,8 +1,9 @@
 import datetime
 
 from django.contrib.auth import get_user_model
+from django.http import Http404
 from django.shortcuts import redirect
-
+from django.utils import timezone
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin, UpdateModelMixin
@@ -10,11 +11,15 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
-from django.http import Http404
-from .serializers import UserSerializer, RegisterSerializer, PostNewsSerializer, UserCommentPostSerializer, \
-    UserVotePostSerializer
+
 from .models import PostNews, UserCommentPost, UserVotePost
-from django.utils import timezone
+from .serializers import (
+    PostNewsSerializer,
+    RegisterSerializer,
+    UserCommentPostSerializer,
+    UserSerializer,
+    UserVotePostSerializer,
+)
 
 User = get_user_model()
 
@@ -82,11 +87,12 @@ def update_count_post(request, pk):
 
     except:
         raise Http404("Post does not exist")
-    post.count_votes = int(0)
-    post.delete()
+
+    post.count_votes = 0
+    post.save()
     # today = datetime.datetime.now(timezone.utc)
-    # if post.date_created != today:
-    #     instance['count_votes'] = 0
+    # if post.count_votes > 0:
+    #     post.count_votes = 0
     #     post.save()
 
     return redirect('users/api_app/post_create')
