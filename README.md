@@ -54,7 +54,6 @@ cd main
 celery -A config.celery_app worker -l info
 ```
 
-Please note: For Celery's import magic to work, it is important *where* the celery commands are run. If you are in the same folder with *manage.py*, you should be right.
 
 ## Deployment
 
@@ -67,3 +66,6 @@ See detailed [cookiecutter-django Heroku documentation](http://cookiecutter-djan
 ### Docker
 
 See detailed [cookiecutter-django Docker documentation](http://cookiecutter-django.readthedocs.io/en/latest/deployment-with-docker.html).
+
+### POSTMAN
+https://www.postman.com/mishamoloko/workspace/my-workspace/collection/12177298-3a06a72c-174f-466c-8cce-4c8f7d4e29ad?action=share&creator=12177298
