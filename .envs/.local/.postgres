@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRE_DB=PythonDev
+POSTGRE_USER=Misha-Molokov
+POSTGRE_PASSWORD=misha12345
+POSTGRE_HOST=localhost
+POSTGRE_PORT=5432
